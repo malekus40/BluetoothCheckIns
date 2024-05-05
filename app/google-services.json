@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "406354242650",
+    "project_id": "bluetoothcheckins",
+    "storage_bucket": "bluetoothcheckins.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:406354242650:android:7aa3153232bd58f31f3c63",
+        "android_client_info": {
+          "package_name": "com.example.bluetoothcheckins"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "406354242650-fifhg8slaegk55oqcvtt48qn7uq5futr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.bluetoothcheckins",
+            "certificate_hash": "0813ae4fa7acf134d5f48f88ff0cc7ba7ca136a9"
+          }
+        },
+        {
+          "client_id": "406354242650-0duu2imbmfser8sp71tpkh6f7iplli5r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCvHn7jAwJVLLQL5Rstp96igqp8-x1khlY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "406354242650-0duu2imbmfser8sp71tpkh6f7iplli5r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
