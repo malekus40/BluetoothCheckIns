@@ -5,18 +5,17 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.example.bluetoothcheckins.databinding.ActivityMainBinding
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.SignInButton
 import com.google.android.gms.common.api.ApiException
+import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
+import com.google.firebase.firestore.firestore
 
 class MainActivity : AppCompatActivity() {
 
@@ -25,6 +24,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var gsc: GoogleSignInClient
     lateinit var gBtn: SignInButton
     lateinit var auth : FirebaseAuth
+    var db = Firebase.firestore
 
 
     lateinit var binding: ActivityMainBinding
@@ -38,6 +38,18 @@ class MainActivity : AppCompatActivity() {
         gBtn.setOnClickListener{
             gSignIn()
         }
+//        val user = hashMapOf(
+//            "userID" to "111111"
+//        )
+//
+//        db.collection("users")
+//            .add(user)
+//            .addOnSuccessListener { documentReference ->
+//                Log.d(TAG, "DocumentSnapshot added with ID: ${documentReference.id}")
+//            }
+//            .addOnFailureListener { e ->
+//                Log.w(TAG, "Error adding document", e)
+//            }
 
         gso = GoogleSignInOptions
             .Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -51,6 +63,7 @@ class MainActivity : AppCompatActivity() {
             handleGoogleAccessToken(acct.idToken)
             navigateToSecondActivity()
         }
+
 
 
 
@@ -90,7 +103,7 @@ class MainActivity : AppCompatActivity() {
     }
     fun navigateToSecondActivity() {
         finish()
-        var intent = Intent(this@MainActivity,BluetoothActivity::class.java)
+        var intent = Intent(this@MainActivity,ListOfOrg::class.java)
         startActivity(intent)
     }
 

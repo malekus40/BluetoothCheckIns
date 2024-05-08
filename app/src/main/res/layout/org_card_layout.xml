@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="380dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="7dp"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="@color/benge"
+        android:gravity="center"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="10dp"
+        app:cardPreventCornerOverlap="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_goneMarginBottom="4dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="386dp"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/orgName"
+                android:layout_width="199dp"
+                android:layout_height="46dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="19dp"
+                android:gravity="center"
+                android:text="TextView"
+                android:textSize="30dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/editOrgBtn"
+                android:layout_width="88dp"
+                android:layout_height="37dp"
+                android:layout_marginStart="290dp"
+                android:layout_marginTop="5dp"
+                android:backgroundTint="@color/charcoal"
+                android:text="Edit"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/deleteOrg"
+                android:layout_width="88dp"
+                android:layout_height="37dp"
+                android:layout_marginStart="290dp"
+                android:layout_marginTop="39dp"
+                android:backgroundTint="@color/charcoal"
+                android:text="delete"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>
