@@ -6,7 +6,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ListOfOrg"
+    tools:context=".org.ListOfOrg"
     android:background="@color/charcoal">
 
     <com.google.android.material.appbar.AppBarLayout
@@ -18,7 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="@color/benge"
-            app:title="Meetings"
+            app:title="Members"
             app:titleTextColor="@android:color/black"
             />
 

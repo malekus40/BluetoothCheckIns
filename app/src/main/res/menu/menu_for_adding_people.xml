@@ -2,8 +2,12 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/addMeetingId"
-        android:title="Add Meeting" />
+        android:id="@+id/takeAttandance"
+        android:title="Take Attendance"
+        />
+    <item
+        android:id="@+id/addMorePeople"
+        android:title="Add more people" />
     <item
         android:id="@+id/signOut"
         android:title="Sign out"

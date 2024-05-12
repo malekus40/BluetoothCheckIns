@@ -7,6 +7,7 @@ import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.bluetoothcheckins.databinding.ActivityMainBinding
+import com.example.bluetoothcheckins.org.ListOfOrg
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
@@ -25,7 +26,9 @@ class MainActivity : AppCompatActivity() {
     lateinit var gBtn: SignInButton
     lateinit var auth : FirebaseAuth
     var db = Firebase.firestore
-
+    val USERS_COLLECTION = "users"
+    val MEETINGS_COLLECTION = "meetings"
+    val ATTENDANCES_COLLECTION = "attendances"
 
     lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,18 +41,6 @@ class MainActivity : AppCompatActivity() {
         gBtn.setOnClickListener{
             gSignIn()
         }
-//        val user = hashMapOf(
-//            "userID" to "111111"
-//        )
-//
-//        db.collection("users")
-//            .add(user)
-//            .addOnSuccessListener { documentReference ->
-//                Log.d(TAG, "DocumentSnapshot added with ID: ${documentReference.id}")
-//            }
-//            .addOnFailureListener { e ->
-//                Log.w(TAG, "Error adding document", e)
-//            }
 
         gso = GoogleSignInOptions
             .Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -63,12 +54,6 @@ class MainActivity : AppCompatActivity() {
             handleGoogleAccessToken(acct.idToken)
             navigateToSecondActivity()
         }
-
-
-
-
-
-
 
     }
 
@@ -103,7 +88,7 @@ class MainActivity : AppCompatActivity() {
     }
     fun navigateToSecondActivity() {
         finish()
-        var intent = Intent(this@MainActivity,ListOfOrg::class.java)
+        var intent = Intent(this@MainActivity, ListOfOrg::class.java)
         startActivity(intent)
     }
 
@@ -140,6 +125,37 @@ class MainActivity : AppCompatActivity() {
                     // Here you can handle the failure scenario
                 }
             }
+    }
+
+    data class User(val userId: String)
+    data class Meeting(val meetingId: String, val userId: String, val name: String, val lengthOfTheMeeting: Int)
+    data class Attendance(val attendanceId: String, val name: String, val bluetoothId: String, val meetingId: String)
+
+    fun addUser(user: User) {
+        db.collection(USERS_COLLECTION)
+            .document(user.userId)
+            .set(user)
+            .addOnSuccessListener { println("User added successfully") }
+            .addOnFailureListener { e -> println("Error adding user: $e") }
+    }
+
+    // Function to add meeting to Firestore
+    fun addMeeting(meeting: Meeting) {
+        db.collection(MEETINGS_COLLECTION)
+            .document(meeting.meetingId)
+            .set(meeting)
+            .addOnSuccessListener { println("Meeting added successfully") }
+            .addOnFailureListener { e -> println("Error adding meeting: $e") }
+    }
+
+    // Function to add attendance to Firestore
+    fun addAttendance(attendance: Attendance) {
+        db.collection(ATTENDANCES_COLLECTION)
+            .document(attendance.attendanceId)
+            .set(attendance)
+            .addOnSuccessListener { println("Attendance added successfully") }
+            .addOnFailureListener { e -> println("Error adding attendance: $e") }
+
     }
 }
 

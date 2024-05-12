@@ -18,7 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="@color/benge"
-            app:title="Meetings"
+            app:title="Add More People"
             app:titleTextColor="@android:color/black"
             />
 
@@ -30,7 +30,7 @@
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycleOfOrg"
+            android:id="@+id/addMorePeopleRecycler"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:scrollbars="vertical"
@@ -38,22 +38,23 @@
 
     </androidx.core.widget.NestedScrollView>
 
-    <com.google.android.material.bottomappbar.BottomAppBar
-        android:id="@+id/bottomAppBar"
-        style="@style/Widget.MaterialComponents.BottomAppBar.Colored"
-        android:layout_width="409dp"
-        android:layout_height="wrap_content"
+    <Button
+        android:id="@+id/scan"
+        android:layout_width="115dp"
+        android:layout_height="100dp"
+        android:layout_marginLeft="100dp"
         android:layout_gravity="bottom"
-        app:backgroundTint="@color/charcoal"
-        />
+        android:text="SCAN"
+        android:textSize="24dp"/>
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/addOrg"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:clickable="true"
-        app:backgroundTint="#ffffff"
-        app:layout_anchor="@id/bottomAppBar"
-        app:srcCompat="@android:drawable/ic_menu_add" />
+    <Button
+        android:id="@+id/done"
+        android:layout_width="115dp"
+        android:layout_height="100dp"
+        android:layout_gravity="bottom"
+        android:layout_marginLeft="220dp"
+        android:text="Done"
+        android:textSize="24dp" />
+
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
