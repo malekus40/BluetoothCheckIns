@@ -30,6 +30,9 @@ class AddOrg : AppCompatActivity() {
                 createNewOrg(userId)
             }
         }
+        binding.home.setOnClickListener{
+            finish()
+        }
     }
 
     fun createNewOrg(uid:String){

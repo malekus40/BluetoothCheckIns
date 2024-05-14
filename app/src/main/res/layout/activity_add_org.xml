@@ -35,13 +35,14 @@
         app:backgroundTint="@color/charcoal"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/addOrg"
+        android:id="@+id/home"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:clickable="true"
+        app:layout_anchor="@+id/bottomAppBar"
         app:backgroundTint="#ffffff"
-        app:layout_anchor="@id/bottomAppBar"
-        app:srcCompat="@android:drawable/ic_menu_add" />
+        app:layout_anchorGravity="center"
+        app:srcCompat="@drawable/baseline_cottage_24" />
 
     <EditText
         android:id="@+id/newName"
@@ -52,7 +53,8 @@
         android:layout_marginLeft="59dp"
         android:layout_marginTop="200dp"
         android:background="@color/benge"
-        android:hint="Enter Meeting's Name"/>
+        android:hint="Enter Meeting's Name"
+        />
     <EditText
         android:id="@+id/days"
         android:layout_width="300dp"
@@ -71,6 +73,7 @@
         android:layout_marginLeft="143dp"
         android:layout_marginTop="420dp"
         android:text="Create"
-        android:textSize="24dp" />
+        android:textSize="24dp"
+        android:backgroundTint="@color/light_gray"/>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

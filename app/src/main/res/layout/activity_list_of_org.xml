@@ -47,13 +47,16 @@
         app:backgroundTint="@color/charcoal"
         />
 
+
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/addOrg"
+        android:id="@+id/home"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:clickable="true"
+        app:layout_anchor="@+id/bottomAppBar"
         app:backgroundTint="#ffffff"
-        app:layout_anchor="@id/bottomAppBar"
-        app:srcCompat="@android:drawable/ic_menu_add" />
+        app:layout_anchorGravity="center"
+        app:srcCompat="@drawable/baseline_cottage_24" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

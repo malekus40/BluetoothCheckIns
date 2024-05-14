@@ -5,11 +5,12 @@ import android.os.Parcelable
 import com.google.firebase.Timestamp
 
 class Attandent(name: String, bluetoothId: String, i: Int) : Parcelable{
-    constructor() : this("", "", 0)
+    constructor() : this("", "",0)
     constructor(parcel: Parcel) : this (
         parcel.readString() ?: "",
         parcel.readString() ?: "",
         parcel.readInt() ?: 0
+
     ) {
         name = parcel.readString()
         bluetoothID = parcel.readString()
@@ -19,6 +20,7 @@ class Attandent(name: String, bluetoothId: String, i: Int) : Parcelable{
     var name: String?= name
     var bluetoothID: String?=bluetoothId
     var daysAttended: Int?=i
+    var checked: Boolean?=false
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeString(name)
         parcel.writeString(bluetoothID)

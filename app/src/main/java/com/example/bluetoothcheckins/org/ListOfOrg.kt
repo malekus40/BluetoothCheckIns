@@ -17,7 +17,9 @@ import com.example.bluetoothcheckins.R
 import com.example.bluetoothcheckins.data.OrgListAdapter
 import com.example.bluetoothcheckins.databinding.ActivityListOfOrgBinding
 import com.example.bluetoothcheckins.model.Organizasion
+import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.firestore
@@ -25,6 +27,7 @@ import com.google.firebase.firestore.firestore
 class ListOfOrg : AppCompatActivity(), OnDataChangeListener {
 
     lateinit var gsc: GoogleSignInClient
+    lateinit var gso : GoogleSignInOptions
 
     lateinit var binding: ActivityListOfOrgBinding
     lateinit var adapter: OrgListAdapter
@@ -52,7 +55,12 @@ class ListOfOrg : AppCompatActivity(), OnDataChangeListener {
         getAllOrg()
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
-
+        gso = GoogleSignInOptions
+            .Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+            .requestIdToken("406354242650-0duu2imbmfser8sp71tpkh6f7iplli5r.apps.googleusercontent.com")
+            .requestEmail()
+            .build()
+        gsc = GoogleSignIn.getClient(this,gso)
 
     }
     fun getAllOrg(){

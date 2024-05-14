@@ -52,6 +52,11 @@ class ListOfPeopleInOrg : AppCompatActivity(),NewDeviceListener{
         //change the title of toolbar
         binding.toolbar.title = intent.getStringExtra("orgName")
 
+        binding.home.setOnClickListener{
+            finish()
+        }
+
+
         loadAttandants()
 
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
@@ -118,6 +123,9 @@ class ListOfPeopleInOrg : AppCompatActivity(),NewDeviceListener{
                                 attandent.name = doc.data["name"].toString()
                                 attandent.bluetoothID = doc.data["bluetoothId"].toString()
                                 attandent.daysAttended = doc.data["daysAttanded"].toString().toInt()
+                                if(wasItUpdatedToday(doc.getTimestamp("lastDateAttanded"))){
+                                    attandent.checked = true
+                                }
                                 attList?.add(attandent)
                             }
                             adapter?.notifyDataSetChanged()

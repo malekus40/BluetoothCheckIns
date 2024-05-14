@@ -1,10 +1,13 @@
 package com.example.bluetoothcheckins.data
 
 import android.content.Context
+import android.content.res.ColorStateList
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bluetoothcheckins.R
 import com.example.bluetoothcheckins.model.Attandent
@@ -25,7 +28,10 @@ class PeopleListAdapter(private val list: ArrayList<Attandent>,
             name.text = attendent.name
             bluetoothID.text = attendent.bluetoothID
             daysAttended.text = attendent.daysAttended.toString()
-
+            if (attendent.checked == true){
+                val backgroundLayout: ConstraintLayout = itemView.findViewById(R.id.background)
+                backgroundLayout.setBackgroundColor(Color.parseColor("#77f048"))
+            }
         }
 
     }
